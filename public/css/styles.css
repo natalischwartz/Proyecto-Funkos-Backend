@@ -622,34 +622,122 @@ td{
     justify-content:center;
 }
 
-
-.div-container{
+.div-flex-row{
     display: flex;
-    gap:40px;
-    justify-content:start;
+    gap: var(--spacing-20);
     align-items: center;
 }
 
-.div-container div:nth-child(1){
-    display: flex;
-    gap:5px;
-    justify-content: start;
-    align-items: center;
-}
-
-.input1{
-    display: inline-block;
-    text-align: center;
-    height: 35px;
-}
-
-.sumar-restar{
+.div-flex-column{
     display: flex;
     flex-direction: column;
+    gap: var(--spacing-12);
     justify-content: center;
-    align-items: center;
-    gap: 3px;
+    align-self: center;
+    
 }
+
+
+.item__quantity{
+    background-color:var(--dark-bg-solid);
+    color: var(--light-font-solid);
+    border:none;
+}
+
+.item__submit {
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    border:none;
+    align-self:center;
+}
+
+/*CARRITO*/
+
+.title__carrito{
+    font-family: var(--alternative-font);
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary-solid);
+    font-size: var(--font-jumbo);
+    padding: var(--spacing-12);
+    
+}
+
+.contenedor-carrito{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-28);
+}
+
+.heading-tabla-carrito{
+    display: flex;
+    justify-content: space-around;
+    background-color:#FAFAFF;
+    border-radius: 20px;
+    padding: var(--spacing-20);
+    box-shadow: 1px 1px 2px #30343F;
+    align-items: center;
+
+}
+
+
+.cart-product-details{
+    background-color:#FAFAFF;
+    box-shadow: 1px 1px 2px #30343F;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.cart-image{
+    width: 10vw;
+}
+
+
+.product-name{
+    font-family: var(--base-font);
+}
+
+.eliminar{
+    color: var(--primary-solid);
+}
+
+.resumen{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: var(--spacing-20);
+}
+
+.section-resumen{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    padding: var(--spacing-8) var(--spacing-68);
+    background-color:#FAFAFF;
+    box-shadow: 1px 1px 2px #30343F;
+    border-radius: 20px;
+}
+
+.div-flex-resumen {
+    display: flex;
+    padding: var(--spacing-8);
+    justify-content: space-between;
+    
+}
+
+.button-pay{
+    color: var(--light-font-solid);
+    background-color: var(--primary-solid);
+    align-self: stretch;
+    border:none;
+    font-weight: 700;
+    font-size: var(--font-medium);
+    padding: var(--spacing-8) var(--spacing-68);
+
+}
+
 
 /*LOGIN*/
 .login{
