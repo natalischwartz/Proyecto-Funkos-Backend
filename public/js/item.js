@@ -12,36 +12,40 @@ substract.addEventListener('click',()=> {
 
 
 //LOCALSTORAGE
+var productosCarrito = [0];
+
 //Verificamos que localstorage tenga el espacio en memoria, sino lo creamos
-if(localStorage.getItem('productosCarrito') == null){
-    localStorage.setItem("productosCarrito",0); //JSON.stringify([{id:1,cant:2}])
-}  else{
+if(localStorage.getItem('productosCarrito') !== undefined){
     var productosCarritoLS = localStorage.getItem("productosCarrito");
-    var productosCarrito = JSON.parse(productosCarritoLS);
-    //console.log(productosCarrito);
-}
-
-
+    productosCarrito = JSON.parse(productosCarritoLS);
+}  
 
 //FUNCIONES
 //boton agregar a Carrito 
 const botonAgregarCarrito = document.querySelector("#agregarcarrito");
 botonAgregarCarrito.addEventListener("click", agregarCarrito);
+
 function agregarCarrito(){
     const cantidadProducto = document.querySelector("#quantity");
     const productoID = document.querySelector("#productoID");
-   
     var listaNueva;
 
-
-
-    if(productosCarrito == 0){
+    if(productosCarrito == null){
         productosCarrito = [{id: productoID.id, cantidad: cantidadProducto.value}]
         listaNueva = productosCarrito[0];
-        alert("Hola");
-        alert(productosCarrito[0].cantidad);
     } else {
-        listaNueva = productosCarrito;
+        if(productosCarrito.filter(elem => elem.id == productoID.id).length == 0){
+            listaNueva = productosCarrito.push([{id: productoID.id, cantidad: cantidadProducto.value}])
+        } else {
+            listaNueva = productosCarrito.map(elem => {
+                if(elem.id == productoID.id){
+                    elem.cantidad=parseInt(elem.cantidad)+parseInt(cantidadProducto.value);
+                    return {...elem,cantidad: elem.cantidad}
+                } 
+                return elem
+            })
+        }
+        
     };
 
     localStorage.setItem("productosCarrito",JSON.stringify(listaNueva));

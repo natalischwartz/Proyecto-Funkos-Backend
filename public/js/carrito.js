@@ -4,23 +4,32 @@
 //alert("Sidebar si existe en localStorage!!");
 
 
-if(localStorage.getItem('productoscarrito') == undefined){
-    localStorage.setItem("productoscarrito",0);
-}  
+
 
 //Variables
 //const productosEnCarrito = JSON.parse(localStorage.getItem("productoscarrito"));
 const productID = 1
 
+var items = [1,2,3,4]
 
+const contenedorCarritoProductos = document.querySelector("#contenedor-carrito");
+alert(contenedorCarritoProductos);
 
-
-
-
+function cargarProductosCarrito(){
+    contenedorCarritoProductos.innerHTML="";
+    items.forEach(elem => {
+        const section = document.createElement("section");
+        contenedorCarritoProductos.classList.remove("disabled");
+        section.classList.add("section-product-cart");
+        section.innerHTML=`
+            <p> Hola </p>
+        `;
+    });
+    contenedorCarritoProductos.append(div);
+}
+cargarProductosCarrito();
 
 //Funciones
-
-
 /*
 const textoCarritoVacio = document.querySelector("#carrito-vacio");
 const contenedorCarritoProductos = document.querySelector("#carrito-productos")
@@ -32,7 +41,6 @@ const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
 const contenedorTotal = document.querySelector("#total");
 console.log(contenedorTotal);
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
-
 
 function cargarProductosCarrito() {
     if(productosEnCarrito && productosEnCarrito.length > 0 ){//si hay productos en carrito hacer algo en particular 
