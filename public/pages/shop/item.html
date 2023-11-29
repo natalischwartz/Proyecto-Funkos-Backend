@@ -89,7 +89,7 @@
     </header> <!--fin de header CAMBIO-->
 
     <main> <!-- Inicio de principal-->
-        <section class="container"> <!--Inicio de ITEM-->
+        <section class="container" > <!--Inicio de ITEM-->
             <div class="section-flex">
                 <picture>
                     <!-- style="background-color:pink; height: 500px; width: 500px;" -->
@@ -99,19 +99,19 @@
                 <article class="cuerpo"> <!--primer producto-->
                     <div class="card-item__content">
                         <p class="card-item__license">STAR WARS</p>
-                        <h1 class="card-item__name">BABY YODA BLUEBALL</h1>
+                        <h1 class="card-item__name" id="productoID" >BABY YODA BLUEBALL</h1>
                         <p>Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</p>
                         <p>$ 1799,99</p>
                         <div class="div-flex-row">
                             <div class="div-flex-row">
-                                <input class="item__input" type="text" name="quantity"  id="quantity"   placeholder="0" size="2">
+                                <input class="item__input" type="number" name="quantity"  id="quantity" placeholder="0" size="2">
                                 <div class="div-flex-column">
                                     <button class="item__quantity" type="button" id="substract">-</button>
                                     <button class="item__quantity" type="button" id="add">+</button>
                                 </div>
                             </div>
-                            <button class="item__submit btn btn--priority btn--medium" type="submit">
-                                <a href="../shop/carrito.html">Agregar al Carrito</a></button>
+                            <button class="item__submit btn btn--priority btn--medium" type="submit" name="agregarcarrito"  id="agregarcarrito">
+                                <a href="">Agregar al Carrito</a></button>
                         </div>
                         <p class="card-item__promo"> Ver métodos de pago - 3 CUOTAS SIN INTERÉS</p>
                     </div>
