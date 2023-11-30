@@ -10,9 +10,8 @@ substract.addEventListener('click',()=> {
     }
 });
 
-
 //LOCALSTORAGE
-var productosCarrito = [0];
+var productosCarrito;
 
 //Verificamos que localstorage tenga el espacio en memoria, sino lo creamos
 if(localStorage.getItem('productosCarrito') !== undefined){
@@ -24,45 +23,40 @@ if(localStorage.getItem('productosCarrito') !== undefined){
 //boton agregar a Carrito 
 const botonAgregarCarrito = document.querySelector("#agregarcarrito");
 botonAgregarCarrito.addEventListener("click", agregarCarrito);
+var listaNueva;
 
 function agregarCarrito(){
+    //event.preventDefault();
     const cantidadProducto = document.querySelector("#quantity");
-    const productoID = document.querySelector("#productoID");
-    var listaNueva;
+    const productoID = Number(localStorage.getItem("productoID"));
+    const producto = [{id: productoID, cantidad: Number(cantidadProducto.value)}]
+    
 
-    if(productosCarrito == null){
-        productosCarrito = [{id: productoID.id, cantidad: cantidadProducto.value}]
-        listaNueva = productosCarrito[0];
-    } else {
-        if(productosCarrito.filter(elem => elem.id == productoID.id).length == 0){
-            listaNueva = productosCarrito.push([{id: productoID.id, cantidad: cantidadProducto.value}])
+    if(cantidadProducto.value>0){
+        if(productosCarrito == null){
+            productosCarrito = [{id: productoID, cantidad: Number(cantidadProducto.value)}];
+            listaNueva = productosCarrito;
         } else {
-            listaNueva = productosCarrito.map(elem => {
-                if(elem.id == productoID.id){
-                    elem.cantidad=parseInt(elem.cantidad)+parseInt(cantidadProducto.value);
-                    return {...elem,cantidad: elem.cantidad}
-                } 
-                return elem
-            })
-        }
-        
-    };
-
-    localStorage.setItem("productosCarrito",JSON.stringify(listaNueva));
-    
-    
-
+            if(Array.isArray(productosCarrito)){
+                if(productosCarrito.filter(elem => elem.id == productoID).length == 0){
+                    productosCarrito.push({id: productoID, cantidad: Number(cantidadProducto.value)});
+                    listaNueva = productosCarrito;
+                } else {
+                    listaNueva = productosCarrito.map(elem => {
+                        if(elem.id == productoID){
+                            elem.cantidad=parseInt(elem.cantidad)+parseInt(cantidadProducto.value);
+                            return {...elem,cantidad: elem.cantidad}
+                        } 
+                        return elem;
+                    });
+                };  
+            }
+        };
+        localStorage.setItem("productosCarrito",JSON.stringify(listaNueva));
+    }
 }
 
 
-
-
-
-
-
-
-
-    
    
     /*    
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));

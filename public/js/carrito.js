@@ -10,22 +10,62 @@
 //const productosEnCarrito = JSON.parse(localStorage.getItem("productoscarrito"));
 const productID = 1
 
+
+//LOCALSTORAGE
+var productosCarrito = [0];
+
+//Verificamos que localstorage tenga el espacio en memoria, sino lo creamos
+if(localStorage.getItem('productosCarrito') !== undefined){
+  const productosCarritoLS = localStorage.getItem("productosCarrito");
+  productosCarrito = JSON.parse(productosCarritoLS);
+}  
+
+//cantidad de items
 var items = [1,2,3,4]
 
 const contenedorCarritoProductos = document.querySelector("#contenedor-carrito");
-alert(contenedorCarritoProductos);
 
 function cargarProductosCarrito(){
-    contenedorCarritoProductos.innerHTML="";
-    items.forEach(elem => {
+    //contenedorCarritoProductos.innerHTML="";
+    productosCarrito.forEach(elem => {
         const section = document.createElement("section");
-        contenedorCarritoProductos.classList.remove("disabled");
+        //contenedorCarritoProductos.classList.remove("disabled");
         section.classList.add("section-product-cart");
         section.innerHTML=`
-            <p> Hola </p>
+        <article class="cart-product-details">
+        <div class="div-flex-row">
+          <div>
+            <img class="cart-image" src="../../img/star-wars/baby-yoda-1.webp" alt="">
+          </div>
+          <div class="cart-item">
+            <h3 class="product-name">BABY YODA BLUEBALL</h3>
+            <small class="product-license">STAR WARS</small>
+            <small class="product-price">precio: $ 1799,99</small>
+          </div>
+        </div>
+        <article class="div-container">
+          <div class="div-flex-row">
+            <input class="item__input" type="numer" name="quantity${elem.id}"  id="quantity${elem.id}" size="3" placeholder=${elem.cantidad}>
+            <div class="div-flex-column">
+              <button class="item__quantity" type="button" id="add">+</button>
+              <button class="item__quantity" type="button" id="substract">-</button>
+            </div>
+          </div>
+        </article>
+        <article class="total">
+          <h4>$ 3599,98</h4>
+        </article>
+        <article >
+          <a href="">
+            <iconify-icon class="eliminar" icon="carbon:close-outline"></iconify-icon>
+          </a>
+          
+        </article>
+      </article>
         `;
+        contenedorCarritoProductos.append(section);
     });
-    contenedorCarritoProductos.append(div);
+    
 }
 cargarProductosCarrito();
 
