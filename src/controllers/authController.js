@@ -1,12 +1,15 @@
+
+const path = require('path')
+
 const authControllers ={
     loginGet :  (req,res)=>{
-        res.send("Estas en la página de login ")
+        res.sendFile(path.resolve("src/views/pages/admin/login.html"))
     },
     loginPost: (req,res)=>{
         res.send("Enviamos datos login")
     },
     registerGet: (req,res)=>{
-        res.send("Estas en la página de register")
+        res.sendFile(path.resolve("src/views/pages/admin/register.html"))
     },
     registerPost: (req,res)=>{
         res.send("Enviamos datos de register")

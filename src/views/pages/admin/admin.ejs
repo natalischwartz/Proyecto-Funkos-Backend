@@ -15,46 +15,7 @@
 </head>
 
 <body> 
-    <header><!--Inicio Header-->
-        <nav class="navbar container">
-            <picture class="navbar__logo">
-                <a href="../../index.html">
-                    <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-                </a>
-            </picture>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../shop/shop.html">VER TIENDA</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="./admin.html">ADMIN</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../../index.html">SALIR</a>
-                </li>
-            </ul>
-            <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
-            <!--menu mobile-->
-            <aside class="aside-menu">
-                <button class="close-menu" id="close-menu">
-                    <iconify-icon icon="material-symbols:close"></iconify-icon>
-                </button>
-                <nav>
-                    <ul class="menu">
-                        <li class="navbar__item with-submenu">
-                            <a  class="navbar__link with-icon" href="../shop/shop.html"> VER TIENDA</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a class="navbar__link" href="./admin.html">ADMIN</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a  class="navbar__link"href="../../index.html">SALIR</a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-        </nav>
-    </header><!--Fin Header-->
+    <%- include ('../../partials/headerAdmin') %>
     <main class="container">
         <div class="search-section">
             <img class="icon-size" src="../../img/icons/search_icon.svg" alt="">
@@ -64,7 +25,7 @@
             <h1>LISTADO DE PRODUCTOS</h1>
             <div class="add-section">
                 <h2>AGREGAR</h2>
-                <a href="../admin/create.html">
+                <a href="/admin/create">
                     <span><iconify-icon class="plus-box" icon="ic:baseline-plus"></iconify-icon></span>
                 </a>
                 
@@ -78,6 +39,35 @@
                     <th>Nombre del Producto</th>
                     <th>Categoria</th>
                 </tr>
+
+                <% data.forEach((producto) => { %> 
+                    <tr>
+                        <td><%= producto.product_id %></td>
+                        <td><%= producto.product_sku %></td>
+                        <td><%= producto.product_name %></td>
+                        <td><%= producto.licence_name %></td>
+                        <div>
+                            <td>
+                                <a href="admin/edit/<% producto.product_id %>">
+                                    <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <img class="icon-size" src="../../img/icons/delete_trash.svg" alt="">
+                                </a>
+                            </td> 
+                        </div>
+                    </tr>
+
+                <% }) %>
+                <!--
+                <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Nombre del Producto</th>
+                    <th>Categoria</th>
+                </tr>
                 <tr>
                     <td>1</td>
                     <td>STW001001</td>
@@ -85,7 +75,7 @@
                     <td>STAR WARS</td>
                     <div>
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -103,7 +93,7 @@
                     <td>STAR WARS</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -121,7 +111,7 @@
                     <td>STAR WARS</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -139,7 +129,7 @@
                     <td>STAR WARS</td>
                     <div>
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -157,7 +147,7 @@
                     <td>POKEMON</td>
                     <div>
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -175,7 +165,7 @@
                     <td>POKEMON</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -193,7 +183,7 @@
                     <td>POKEMON</td>
                     <div>
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -211,7 +201,7 @@
                     <td>POKEMON</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -229,7 +219,7 @@
                     <td>POKEMON</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -247,7 +237,7 @@
                     <td>HARRY POTTER</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -265,7 +255,7 @@
                     <td>HARRY POTTER</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -283,7 +273,7 @@
                     <td>HARRY POTTER</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -301,7 +291,7 @@
                     <td>HARRY POTTER</td>
                     <div >
                         <td>
-                            <a href="./edit.html">
+                            <a href="">
                                 <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                             </a>
                         </td>
@@ -312,7 +302,7 @@
                         </td> 
                     </div>
 
-                </tr>
+                </tr>-->
             </table>
         </section>
 
@@ -325,21 +315,7 @@
     </main>
 
 
-    <footer class="footer">
-        <nav class="navbar container">
-            <ul class="navbar__item">
-                <li class="navbar__item"><a class="navbar__link" href="../shop/shop.html">SHOP</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./register.html">REGISTRARSE</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./login.html">LOGIN</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./contact.html">CONTACTO</a></li>
-            </ul>
-            <picture class="navbar__logo">
-                <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
-            </picture>
-
-        </nav>
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
-</footer>
+    <%- include ('../../partials/footer') %>
 
     <!--Iconos-->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>

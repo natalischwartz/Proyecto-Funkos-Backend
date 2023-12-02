@@ -13,76 +13,7 @@
 
 </head>
 <body>
-    <header><!--Inicio Header-->
-        <nav class="navbar container">
-            <picture class="navbar__logo">
-                <a href="../../index.html">
-                    <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-                </a>
-            </picture>
-            <ul class="navbar__menu">
-                <li class="navbar__item with-submenu">
-                    <a class="navbar__link with-icon" href="./shop.html">SHOP<iconify-icon icon="mdi:chevron-down"></iconify-icon></a>
-                    <ul class="submenu">
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Funkos</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Remeras</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Llaveros</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../admin/contact.html">CONTACTO</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../../pages/admin/login.html">LOGIN</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__cart" href="./carrito.html">
-                        <img src="../../img/icons/cart-icon.svg" alt="icono de carrito">
-                    </a>
-                </li>
-            </ul>
-            <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
-            <!--menu mobile-->
-            <aside class="aside-menu">
-                <button class="close-menu" id="close-menu">
-                    <iconify-icon icon="material-symbols:close"></iconify-icon>
-                </button>
-                <nav>
-                    <ul class="menu">
-                        <li class="navbar__item with-submenu">
-                            <a  class="navbar__link with-icon" href="./shop.html">SHOP <iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
-                            <ul class="submenu">
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Funkos</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Remeras</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Llaveros</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navbar__item">
-                            <a class="navbar__link" href="../admin/contact.html">CONTACTO</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a  class="navbar__link"href="../admin/login.html">LOGIN</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a class="navbar__cart" href="./carrito.html"><img src="../../img/icons/cart-icon.svg" alt="icono de carrito"></a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-        </nav>
-    </header><!--Fin Header-->
+    <%-include ('../../partials/header') %>
     <main id="shop-main" class="container">
         <aside class="aside-filter">
             <div class="filter">
@@ -129,9 +60,29 @@
         </aside>
         <section class="shop__content">
             <ul id="shop-productos">
+                <% data.forEach((producto) => { %> 
+                    <li class="shop__item">
+                        <article class="card-item">
+                            <a class="card-item__link" href="/shop/item/<% producto.product_id %>">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img src="<%= producto.img_front %>" alt="<%= producto.product_description %>">
+                                </picture>
+                                <div class="card-item__content">
+                                    <p class="card-item__license"><%= producto.licence_name %></p>
+                                    <h4 class="card-item__name"><%= producto.product_name %></h4>
+                                    <p class="card-item__price"><%= producto.product_price %></p>
+                                    <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                    <% }) %>
+
+                <!--
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img src="../../img/star-wars/trooper-1.webp" alt="Figura colecionable Funko de un Stormtrooper">
@@ -147,7 +98,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/pokemon/pidgeotto-1.webp" alt="Figura colecionable Funko dE Pidgeotto">
@@ -163,7 +114,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/harry-potter/luna-1.webp" alt="Figura colecionable Funko de Luna Lovegood">
@@ -179,7 +130,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/star-wars/trooper-1.webp" alt="Figura colecionable Funko de un Stormtrooper">
@@ -195,7 +146,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/pokemon/pidgeotto-1.webp" alt="Figura colecionable Funko dE Pidgeotto">
@@ -211,7 +162,7 @@
                 </li>
                 <li>
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/harry-potter/luna-1.webp" alt="Figura colecionable Funko de Luna Lovegood">
@@ -227,7 +178,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/star-wars/trooper-1.webp" alt="Figura colecionable Funko de un Stormtrooper">
@@ -243,7 +194,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/pokemon/pidgeotto-1.webp" alt="Figura colecionable Funko dE Pidgeotto">
@@ -259,7 +210,7 @@
                 </li>
                 <li class="shop__item">
                     <article class="card-item">
-                        <a class="card-item__link" href="./item.html">
+                        <a class="card-item__link" href="/item/:id">
                             <picture class="card-item__cover">
                                 <span class="card-item__tag">Nuevo</span>
                                 <img  src="../../img/harry-potter/luna-1.webp" alt="Figura colecionable Funko de Luna Lovegood">
@@ -272,7 +223,7 @@
                             </div>
                         </a>
                     </article>
-                </li>
+                </li> -->
             </ul>
         </section>
     </main>
@@ -296,22 +247,7 @@
             <iconify-icon icon="mdi:chevron-right"></iconify-icon>
         </button>
     </section>
-    <footer class="footer">
-        <nav class="navbar container">
-            <ul class="navbar__item">
-                <li class="navbar__item"><a class="navbar__link" href="../../pages/shop/shop.html">SHOP</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="../../pages/admin/register.html">REGISTRARSE</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="../../pages/admin/login.html">LOGIN</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="../../pages/admin/contact.html">CONTACTO</a></li>
-            </ul>
-            <picture class="navbar__logo">
-                <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
-            </picture>
-
-        </nav>
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
-</footer>
-
+    <%- include ('../../partials/footer') %>
 <!--Iconos-->
 <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 <script src="../../js/menu-mobile.js"></script>

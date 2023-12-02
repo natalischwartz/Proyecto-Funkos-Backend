@@ -16,77 +16,7 @@
 </head>
 
 <body>
-    <header> <!--Inicio Header-->
-        <nav class="navbar container">
-            <picture class="navbar__logo"> <!--contenedor para indicar al navegador que queremos mostrar una img -->
-                <a href="../../index.html">
-                    <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-                </a>
-            </picture>
-            <ul class="navbar__menu">
-                <li class="navbar__item  with-submenu">
-                    <a class="navbar__link with-icon" href="./shop.html">SHOP<iconify-icon
-                            icon="mdi:chevron-down"></iconify-icon></a>
-                    <ul class="submenu">
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Funkos</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Remeras</a>
-                        </li>
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Llaveros</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../admin/contact.html">CONTACTO</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__link" href="../../pages/admin/login.html">LOGIN</a>
-                </li>
-                <li class="navbar__item">
-                    <a class="navbar__cart" href="./carrito.html">
-                        <img src="../../img/icons/cart-icon.svg" alt="icono de carrito">
-                    </a>
-                </li>    
-            </ul>
-            <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
-            <!--menu mobile-->
-            <aside class="aside-menu">
-                <button class="close-menu" id="close-menu">
-                    <iconify-icon icon="material-symbols:close"></iconify-icon>
-                </button>
-                <nav>
-                    <ul class="menu">
-                        <li class="navbar__item with-submenu">
-                            <a  class="navbar__link with-icon" href="./shop.html">SHOP <iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
-                            <ul class="submenu">
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Funkos</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Remeras</a>
-                                </li>
-                                <li class="submenu__item">
-                                    <a href="" class="submenu__link">Llaveros</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="navbar__item">
-                            <a class="navbar__link" href="../admin/contact.html">CONTACTO</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a  class="navbar__link"href="../admin/login.html">LOGIN</a>
-                        </li>
-                        <li class="navbar__item">
-                            <a class="navbar__cart" href="./carrito.html"><img src="../../img/icons/cart-icon.svg" alt="icono de carrito"></a>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-        </nav>
-    </header> <!--fin de header CAMBIO-->
+    <%- include ('../partials/header') %>
 
     <main> <!-- Inicio de principal-->
         <section class="container"> <!--Inicio de ITEM-->
@@ -182,20 +112,7 @@
             </div>
         </section>
     </main>
-    <footer class="footer">
-        <nav class="navbar container">
-            <ul class="navbar__item">
-                <li class="navbar__item"><a class="navbar__link" href="../shop/shop.html">SHOP</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="../admin/register.html">REGISTRARSE</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="../admin/contact.html">CONTACTO</a></li>
-            </ul>
-            <picture class="navbar__logo">
-                <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
-            </picture>
-
-        </nav>
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
-    </footer>
+    <%- include ('../partials/footer') %>
     <!--Iconos-->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 

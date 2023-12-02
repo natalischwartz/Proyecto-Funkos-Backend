@@ -20,19 +20,19 @@
     <header><!--Inicio Header-->
         <nav class="navbar container">
             <picture class="navbar__logo">
-                <a href="../index.html">
+                <a href="/home">
                     <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
                 </a>
             </picture>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a class="navbar__link" href="../shop/shop.html">VER TIENDA</a>
+                    <a class="navbar__link" href="/shop">VER TIENDA</a>
                 </li>
                 <li class="navbar__item">
-                    <a class="navbar__link" href="./admin.html">ADMIN</a>
+                    <a class="navbar__link" href="/admin">ADMIN</a>
                 </li>
                 <li class="navbar__item">
-                    <a class="navbar__link" href="../../index.html">SALIR</a>
+                    <a class="navbar__link" href="/home">SALIR</a>
                 </li>
             </ul>
             <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
@@ -44,13 +44,13 @@
                 <nav>
                     <ul class="menu">
                         <li class="navbar__item with-submenu">
-                            <a  class="navbar__link with-icon" href="./pages/shop/shop.html"> VER TIENDA</a>
+                            <a  class="navbar__link with-icon" href="/shop"> VER TIENDA</a>
                         </li>
                         <li class="navbar__item">
-                            <a class="navbar__link" href="./admin.html">ADMIN</a>
+                            <a class="navbar__link" href="/admin">ADMIN</a>
                         </li>
                         <li class="navbar__item">
-                            <a  class="navbar__link"href="./pages/admin/login.html">SALIR</a>
+                            <a  class="navbar__link"href="/home">SALIR</a>
                         </li>
                     </ul>
                 </nav>
@@ -61,55 +61,47 @@
         <section class="container">
         <!-----------COMIENZO -------->
             <article class="box">
-                <h1>CREAR NUEVO ITEM</h1>
+                <h1 class="title-create-item">CREAR NUEVO ITEM</h1>
             </article>
-            <article class="box">
-                <form class="form" for action="" required>
-                    <label class="select" for="categorias">Categoria</label>
-                    <select class="input" id="categorias" name="categorias">
-                        <option value="figure">Llaveros</option>
-                        <option value="Figure">Remeras</option>
-                        <option value="figure">Funkos</option>
-                        <option value="figure">-</option>
-                    </select>
-                    <label class="select" for="licencias">Licencia</label>
-                    <select class="input" id="licencias" name="licencias">
-                        <option value="licencia">Star Wars</option>
-                        <option value="licencia">Pokemon</option>
-                        <option value="licencia">Harry potter</option>
-                        <option value="licencia">-</option>
-                    </select>
-                </form>
-            </article>
-            <article class="box">
-                <form action="" required class="container__padre">
-                    <h2>Nombre del Producto:</h2>
+            <form class="form box" for=""  action="/admin" required>
+                <label class="select" for="categorias">Categoria</label>
+                <select class="input" id="categorias" name="categorias">
+                    <option value="figure">Llaveros</option>
+                    <option value="Figure">Remeras</option>
+                    <option value="figure">Funkos</option>
+                    <option value="figure">-</option>
+                </select>
+                <label class="select" for="licencias">Licencia</label>
+                <select class="input" id="licencias" name="licencias">
+                    <option value="licencia">Star Wars</option>
+                    <option value="licencia">Pokemon</option>
+                    <option value="licencia">Harry potter</option>
+                    <option value="licencia">-</option>
+                </select>
+                <div class="box create-name-product">
+                    <h2 >Nombre del Producto:</h2>
                     <input class="producto border" type="text" placeholder="Kakashi Hatake Shippuden Saga" />
-                </form>
-            </article>
-            <article class="box">
-                <label for="textarea">
-                <textarea class="text-area" name="descripcion" rows="8" cols="80" placeholder="Descripción del producto"> </textarea>
-                </label>
-            </article>
-            <article class="box">
-                <form class="container__padre">
-                    <div class="container__padre">
-                      <label class="select" for="sku">SKU:</label>
-                      <input class="producto border2" type="text" id="sku" />
+                </div>
+                <div class="box">
+                    <label for="textarea">
+                        <textarea class="text-area" name="descripcion" rows="8" cols="80" placeholder="Descripción del producto"> </textarea>
+                    </label>
+                </div>
+                <div class="box container__padre">
+|                   <div class="container__padre">
+                        <label class="select" for="sku">SKU:</label>
+                        <input class="producto border2" type="text" id="sku" />
                     </div>
                     <div class="container__padre">
-                      <label class="select space" for="price">Precio:</label>
-                      <input class="producto border2" type="text" id="price" />
+                        <label class="select space" for="price">Precio:</label>
+                        <input class="producto border2" type="text" id="price" />
                     </div>
                     <div class="container__padre">
-                      <label class="select space" for="stock">Stock:</label>
-                      <input class="producto border3" type="number" id="stock" />
+                        <label class="select space" for="stock">Stock:</label>
+                        <input class="producto border3" type="number" id="stock" />
                     </div>
-                  </form>
-            </article>
-            <article class="box">
-                <form class="form" action="">
+                </div>    
+                <div class="container__padre box">
                     <label class="select" for="number">Descuento:</label>
                     <input class="border3" type="number" id="number" />
                     <p>%</p>
@@ -120,8 +112,8 @@
                         <option value="figure">3 cuotas sin interés</option>
                         <option value="figure">6 cuotas sin interés</option>
                     </select>
-                </form>
-            </article>
+                </div>
+            </form>
             <article class="box">
                 <div class="container__padre">
                     <h2>Imágenes:</h2>
@@ -138,16 +130,16 @@
                 <article class="box btn2">
                     <a class="modificar-link" href="">Limpiar</a>
                 </article>
-            </div>
+            </div>    
         </section>
     </main>
     <footer class="footer">
         <nav class="navbar container">
             <ul class="navbar__item">
-                <li class="navbar__item"><a class="navbar__link" href="../shop/shop.html">SHOP</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./register.html">REGISTRARSE</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./login.html">LOGIN</a></li>
-                <li class="navbar__item"><a class="navbar__link" href="./contact.html">CONTACTO</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/shop">SHOP</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/auth/register">REGISTRARSE</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/auth/login">LOGIN</a></li>
+                <li class="navbar__item"><a class="navbar__link" href="/contact">CONTACTO</a></li>
             </ul>
             <picture class="navbar__logo">
                 <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">

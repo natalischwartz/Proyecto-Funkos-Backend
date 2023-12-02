@@ -98,9 +98,8 @@ h1 {
 
 .form {
     padding: var(--spacing-12) 0 ;
-    display: flex;
     gap: var(--spacing-20);
-    align-items: center;
+    
 }
 
 .select {
@@ -214,9 +213,12 @@ h2 {
 
 .container__padre{
     display: flex;
-    gap: var(--spacing-12);
+    justify-content: start;
+    gap: var(--spacing-16);
     align-items: center;
 }
+
+
 
 
 /*--------------------FOOTER-----------------------*/
@@ -236,9 +238,21 @@ h2 {
     .form{
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .title-create-item{
+        display: flex;
+        justify-content: center;
     }
     .container__padre{
         margin: 0 50px;
+    }
+
+    .create-name-product{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .text-area{
         margin: 0 50px;

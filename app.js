@@ -9,6 +9,13 @@ const adminRoutes = require('./src/routes/adminRoutes');
 const authRoutes = require('./src/routes/authRoutes');
 
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+//Motor de plantillas
+
+app.set('view engine' , 'ejs')
+app.set('views' , 'src/views')
 
 
 app.use('/', mainRoutes);

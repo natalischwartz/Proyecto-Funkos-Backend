@@ -1,18 +1,26 @@
+
+//importando datos 
+
+const productos = require('../model/datos')
+
 const shopControllers = {
     home:  (req,res) => {
-        res.send("Route for shop view")
+        res.render("pages/shop/shop" , {
+            data:productos
+
+        })
     },
     itemId: (req,res) => {
         const id = req.params.id;
         //busco en la BBDD el elemento con ese ID 
-        res.send(`Este es el item con id : ${req.params.id}`)
+        res.render('pages/shop/item')
     },
     itemIdAdd:  (req,res) => {
         res.send("Route for add the current item to the shop cart")
         // es el post de agregar al carrito en item.html
     },
     cartGet:  (req,res) => {
-        res.send("Route for cart view")
+        res.render("pages/shop/carrito")
         //me devuelve la vista con todos los elementos en el carrito
     },
     cartPost: (req,res) => {
