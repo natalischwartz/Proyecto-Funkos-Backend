@@ -11,7 +11,7 @@ const geproductostItems = async () => {
   }
 }
 module.exports = {
-  getItems
+    productos
 }
 
 
@@ -66,9 +66,9 @@ module.exports = {
             img_front: "/img/pokemon/dragonite-1.webp"
         }
     ]
-*/
+
 
     module.exports = productos;
-
+*/
     
 
