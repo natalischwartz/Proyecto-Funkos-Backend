@@ -1,19 +1,36 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({storage: multer.memoryStorage() });
+
+const {body} = require('express-validator');
+
+const validations = [
+    body('nombre')
+    .not()
+    .isEmpty()
+    .withMessage("El nombre es obligatorio")
+    .bail()
+    .isLength({min:3})
+    .withMessage("Mínimo tiene que tener 3 caracteres"),
+]
+
+
 
 const adminControllers = require('../controllers/adminController')
 
-router.get('/',adminControllers.home )
+router.get('/productos',adminControllers.home )
 
-router.get('/create',adminControllers.createGet)
 
-router.post('/create', adminControllers.createPost )
+router.get('/create',adminControllers.create)
+router.post('/productos', upload.single("imagen"), validations, adminControllers.store )
 
-router.get('/edit/:id',adminControllers.editId )
 
-router.put('/edit/:id', adminControllers.actualizarId)
 
-router.delete('/delete/:id',adminControllers.deleteId )
+router.get('/:id',adminControllers.show )
+
+router.put('/:id', adminControllers.update)
+router.delete('/:id',adminControllers.destroy )
 
 
 

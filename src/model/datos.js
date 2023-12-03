@@ -13,7 +13,7 @@
             
         },
         {
-            product_id: 3,
+            product_id: 2,
             licence_name: "STAR WARS",
             category_name: "Figuras coleccionables",
             product_name: "Luke Skylwalker & Grogu",
@@ -25,7 +25,7 @@
             
         },
         {
-            product_id: 5,
+            product_id: 3,
             licence_name: "POKEMON",
             category_name: "Figuras coleccionables",
             product_name: "Charmander Smiley",
@@ -37,7 +37,7 @@
             
         },
         {
-            product_id: 6,
+            product_id: 4,
             licence_name: "POKEMON",
             category_name: "Figuras coleccionables",
             product_name: "Dragonite Hi!",
