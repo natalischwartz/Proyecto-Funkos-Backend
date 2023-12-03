@@ -1,4 +1,22 @@
+const { conn } = require('../config/conn');
 
+const geproductostItems = async () => {
+  try {
+    const [rows] = await conn.query('SELECT * FROM productos;');
+    return rows;
+  } catch (error) {
+    throw error;
+  } finally {
+    conn.releaseConnection();
+  }
+}
+module.exports = {
+  getItems
+}
+
+
+
+/*
     const productos =  [
         {
             product_id: 1,
@@ -48,6 +66,7 @@
             img_front: "/img/pokemon/dragonite-1.webp"
         }
     ]
+*/
 
     module.exports = productos;
 
