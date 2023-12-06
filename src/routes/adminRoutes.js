@@ -29,8 +29,10 @@ router.post('/productos', upload.single("imagen"), validations, adminControllers
 
 router.get('/:id',adminControllers.show )
 
-router.put('/:id', adminControllers.update)
-router.delete('/:id',adminControllers.destroy )
+router.get('/edit/:id', adminControllers.update)
+
+
+router.get('/delete/:id',adminControllers.destroy )
 
 
 

@@ -2,6 +2,8 @@ const path = require('path');
 
 const productos = require('../model/datos')
 
+// const getAllProductsFromDB = require('../model/model')
+
 const sharp = require('sharp');
 
 const { validationResult } = require('express-validator');
@@ -9,11 +11,28 @@ const { validationResult } = require('express-validator');
 
 
 const admincControllers ={
-    home: (req,res) =>{
-        res.render('pages/admin/admin' , {
+     home: (req,res) =>{
+         res.render('pages/admin/admin' , {
             data:productos
-        })
-    },
+         })
+
+    }     
+
+    //obtener todos los productos
+    // home: async(req,res) =>{
+    //     try{
+    //         const productos = await getAllProductsFromDB()
+    //          res.render('pages/admin/admin', {
+    //        })
+
+    //     }catch(error){
+    //         console.error("Error getting productos", error);
+    //         res.status(500).send('Internal server error');
+
+    //     }
+
+    // }
+    ,
     create:  (req,res) =>{
         res.render('pages/admin/create');
     },
@@ -59,10 +78,33 @@ const admincControllers ={
         })
     },
     update:  (req,res) =>{
-        res.send(`Estamos actualizando el producto con el id: ${req.params.id}`)
+        const item = productos.find((producto) =>{
+            return producto.product_id == req.params.id;
+
+        })
+        if(!item){
+            return res.status(404).send("Item no encontrado");
+        }
+        //busco en la BBDD el elemento con ese ID 
+        res.render('pages/admin/edit',{
+            data:item
+        })
+
+
+
+        
     },
     destroy: (req,res) =>{
-        res.send(`Estamos borrando el producto con el id : ${req.params.id}`)
+       const id = parseInt(req.params.id)
+       const usuarioIndex = productos.findIndex(item => item.product_id == id)
+
+       if(usuarioIndex === -1){
+        return res.status(404).json({mensaje:"Usuario no encontrado"});
+       }
+
+       const usuarioEliminado = productos.splice(usuarioIndex,1)
+
+       res.send("Usuario eliminado")
     }
 }
 

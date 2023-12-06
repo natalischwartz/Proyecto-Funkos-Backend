@@ -48,12 +48,12 @@
                         <td><%= producto.licence_name %></td>
                         <div>
                             <td>
-                                <a href="admin/edit/<% producto.product_id %>">
+                                <a href="/admin/edit/<%= producto.product_id %>">
                                     <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="">
+                                <a href="/admin/delete/<%= producto.product_id %>">
                                     <img class="icon-size" src="../../img/icons/delete_trash.svg" alt="">
                                 </a>
                             </td> 

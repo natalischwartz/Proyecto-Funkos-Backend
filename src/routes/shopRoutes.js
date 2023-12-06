@@ -6,7 +6,7 @@ const shopControllers = require('../controllers/shopController')
 
 router.get('/', shopControllers.home)
 
-router.get('/item/:id', shopControllers.itemId )
+router.get('/items/:id', shopControllers.obtenerItem )
 
 
 router.post('/item/:id/add', shopControllers.itemIdAdd)

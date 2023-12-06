@@ -10,10 +10,18 @@ const shopControllers = {
 
         })
     },
-    itemId: (req,res) => {
-        const id = req.params.id;
+    obtenerItem: (req,res) => {
+        const item = productos.find((producto) =>{
+            return producto.product_id == req.params.id;
+
+        })
+        if(!item){
+            return res.status(404).send("Item no encontrado");
+        }
         //busco en la BBDD el elemento con ese ID 
-        res.render('pages/shop/item')
+        res.render('pages/shop/item',{
+            data:item
+        })
     },
     itemIdAdd:  (req,res) => {
         res.send("Route for add the current item to the shop cart")

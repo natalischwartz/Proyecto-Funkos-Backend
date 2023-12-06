@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <%-include ('../../partials/header') %>
+    <%- include ('../../partials/header') %>
     <main id="shop-main" class="container">
         <aside class="aside-filter">
             <div class="filter">
@@ -63,7 +63,7 @@
                 <% data.forEach((producto) => { %> 
                     <li class="shop__item">
                         <article class="card-item">
-                            <a class="card-item__link" href="/shop/item/<% producto.product_id %>">
+                            <a class="card-item__link" href="/shop/items/<%= producto.product_id %>">
                                 <picture class="card-item__cover">
                                     <span class="card-item__tag">Nuevo</span>
                                     <img src="<%= producto.img_front %>" alt="<%= producto.product_description %>">

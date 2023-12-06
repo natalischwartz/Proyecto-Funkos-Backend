@@ -84,6 +84,7 @@ ol {
 
 p {
     font-size: 1.8em;
+
 }
 
 img {
@@ -265,7 +266,7 @@ aside {
 }
 
 .collection__text {
-    font-family: var(--alternative-font);
+    font-family: var(--base-font);
     font-size: var(--font-large);
     font-weight: 300;
     border-bottom: 2px solid var(--primary-solid);
