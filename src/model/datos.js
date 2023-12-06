@@ -1,8 +1,9 @@
 const { conn } = require('../config/conn');
 
-const geproductostItems = async () => {
+const productos = async () => {
   try {
-    const [rows] = await conn.query('SELECT * FROM productos;');
+    const [rows] = await conn.query('SELECT * FROM product;');
+    console.log("hola")
     return rows;
   } catch (error) {
     throw error;
@@ -14,6 +15,8 @@ module.exports = {
     productos
 }
 
+
+console.log(productos[0])
 
 
 /*
