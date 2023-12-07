@@ -2,6 +2,8 @@ const path = require('path');
 
 const productos = require('../model/datos')
 
+// const {getItems} =require('../model/model')
+
 // const getAllProductsFromDB = require('../model/model')
 
 const sharp = require('sharp');

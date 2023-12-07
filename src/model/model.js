@@ -1,3 +1,17 @@
+const {conn} = require('../config/conn')
+
+const getItems = async() =>{
+    const data = await conn.query('SELECT * FROM productos_funkos')
+    return data
+}
+
+
+module.exports = {
+    getItems
+}
+
+
+
 // const pool = require('../config/database');
 
 // //obtener todos los productos de la base de datos 
