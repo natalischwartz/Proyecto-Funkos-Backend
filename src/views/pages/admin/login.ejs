@@ -27,7 +27,7 @@
                 <li class="navbar__item">
                     <a class="navbar__link" href="/shop">VER TIENDA</a>
                 </li>
-                <li class="navbar__item">
+                <li class="navbar__item"style="display:none">
                     <a class="navbar__link" href="/admin/productos">ADMIN</a>
                 </li>
                 <li class="navbar__item">
@@ -45,8 +45,8 @@
                         <li class="navbar__item with-submenu">
                             <a  class="navbar__link with-icon" href="/shop"> VER TIENDA</a>
                         </li>
-                        <li class="navbar__item">
-                            <a class="navbar__link" href="/admin/productos">ADMIN</a>
+                        <li class="navbar__item" >
+                            <a class="navbar__link" href="/admin/productos" >ADMIN</a>
                         </li>
                         <li class="navbar__item">
                             <a  class="navbar__link"href="/">SALIR</a>
@@ -62,14 +62,14 @@
     <main class="container">
         <section class="login">
             <h2 class="slider__title top-title">Ingresar a mi cuenta</h2>
-            <form action="/auth/login" method="post" class="formularioAjustes1">
+            <form  method="post" class="formularioAjustes1">
                 <div class="alinearElementosCaja"> 
-                    <label class="font-1">Email: </label>
+                    <label class="font-1" for="email">Email: </label>
                     <input type="email" name="email" id="email" class="inputsStyleRed left-float" placeholder="jhondoe@correo.com">
                 </div>
                 <div class="alinearElementosCaja">
-                    <label class="font-1">Contraseña: </label>
-                    <input type="password" name="pass" id="pass" class="inputsStyleRed left-float" placeholder="********">
+                    <label class="font-1" for="password">Contraseña: </label>
+                    <input type="password" name="password" id="pass" class="inputsStyleRed left-float" placeholder="********">
                 </div>
                 <div class="caja7">
                     <button type="submit" value="Ingresar" class="btnForm">Ingresar</button>
@@ -96,7 +96,7 @@
                 <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
             </picture>
         </nav>
-        <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
+        <p class="footer__copy" >All rights reserved 2023 - Funkoshop &copy;</p>
     </footer>
 
     

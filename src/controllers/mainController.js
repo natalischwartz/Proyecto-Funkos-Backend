@@ -1,11 +1,21 @@
 const path = require('path')
 
+const productos = require('../model/datos')
 
 const mainControllers = {
     home: (req,res) =>{
-        res.render("index");
+        res.render("index" , {
+            collections: productos
+        });
     
     },
+    // mainCollection: (req,res) =>{
+    //     const {filter} = req.query
+    //     const message = filter 
+    //     ? `Vista de funkos filtrado por ${filter}` 
+    //     : `Vista de funkos filtrado sin filtrar`
+    //     res.send(message)
+    // },
     contact: (req,res) =>{
         res.render('pages/admin/contact');
     },
@@ -18,3 +28,4 @@ const mainControllers = {
 }
 
 module.exports = mainControllers;
+

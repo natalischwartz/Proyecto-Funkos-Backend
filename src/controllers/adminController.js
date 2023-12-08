@@ -106,7 +106,7 @@ const admincControllers ={
 
        const usuarioEliminado = productos.splice(usuarioIndex,1)
 
-       res.send("Usuario eliminado")
+       res.redirect('/admin/productos')
     }
 }
 

@@ -262,11 +262,10 @@ aside {
     font-family: var(--alternative-font);
     font-size: var(--font-display);
     font-weight: 500;
-    text-align: center;
 }
 
 .collection__text {
-    font-family: var(--base-font);
+    font-family: var(--alternative-font);
     font-size: var(--font-large);
     font-weight: 300;
     border-bottom: 2px solid var(--primary-solid);
@@ -652,6 +651,134 @@ td{
     align-self:center;
 }
 
+/*EDIT- CREATE*/
+.title-create-item {
+    font-family: var(--alternative-font);
+    font-size: var(--font-xlarge);
+    font-weight: 700;
+}
+
+
+.form {
+    padding: var(--spacing-12) 0 ;
+    gap: var(--spacing-20);
+    
+}
+
+.select {
+    font-family: var(--alternative-font);
+    font-size: var(--font-large);
+    font-weight: 500;
+    padding: var(--spacing-16) var(--spacing-31);
+}
+
+.space{
+    margin-left: var(--spacing-16);
+}
+
+.input {
+    padding: var(--spacing-12) var(--spacing-8);
+    width: 300px;
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+
+.producto {
+    margin-left: var(--spacing-24);
+}
+
+.border {
+    font-family: var(--alternative-font);
+    font-size: var(--font-large);
+    font-weight: 100;
+    border: none;
+    border-bottom: var(--primary-solid) solid 2px;
+    width: 300px;
+    outline: 0;
+}
+
+.text-area {
+    padding: var(--spacing-12);
+    align-items: center;
+    border-radius: 5px;
+    font-family: var(--alternative-font);
+    font-size: var(--font-medium);
+    width: 80vw;
+}
+
+.border2 {
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    font-weight: 100;
+    border: none;
+    border-bottom: var(--primary-solid) solid 2px;
+    width: 200px;
+    outline: 0;
+}
+
+.border3 {
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    font-weight: 100;
+    border: none;
+    border-bottom: var(--primary-solid) solid 2px;
+    width: 50px;
+    outline: 0;
+}
+
+#cuotas {
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    padding: var(--spacing-12) var(--spacing-12);
+    width: 300px;
+}
+
+
+.text {
+    display: inline-flex;
+    padding: var(--spacing-36);
+    margin-left: 15px;
+    gap: var(--spacing-8);
+}
+
+.btn1 {
+    background: var(--dark-300);
+    width: 150px;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-left: 15px;
+}
+
+.modificar-link {
+    font-family: var(--base-font);
+    font-size: var(--font-small);
+    background: var(--primary-solid);
+    padding: var(--spacing-8) var(--spacing-12);
+    font-weight: 700;
+    color: var(--light-font-solid);
+}
+
+.btn2 {
+    margin-bottom: var(--spacing-20);
+}
+
+.box {
+    padding-top: var(--spacing-20);
+}
+
+.container__padre{
+    display: flex;
+    justify-content: start;
+    gap: var(--spacing-16);
+    align-items: center;
+}
+
+
+
+
 /*CARRITO*/
 
 .title__carrito{
@@ -1000,6 +1127,37 @@ td{
         margin: 0 var(--spacing-68);
     }
     
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title-create-item{
+        display: flex;
+        justify-content: center;
+    }
+    .container__padre{
+        margin: 0 50px;
+    }
+
+    .create-name-product{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-area{
+        margin: 0 50px;
+    }
+    .container__padre{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modificar-link{
+        margin-bottom: var(--spacing-24);
+    }
 
 
 

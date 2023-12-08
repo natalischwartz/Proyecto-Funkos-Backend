@@ -10,7 +10,7 @@
             dues: 10,
             product_sku: "STW001001",
             img_front: "/img/star-wars/baby-yoda-1.webp",
-            
+            licence_description :"Disfruta de una saga que sigue agregando personajes a su colección."
         },
         {
             product_id: 2,
@@ -22,6 +22,7 @@
             dues: 10,
             product_sku: "STW001003",
             img_front: "/img//star-wars/luke-1.webp",
+            licence_description :"Disfruta de una saga que sigue agregando personajes a su colección."
             
         },
         {
@@ -34,7 +35,7 @@
             dues: 10,
             product_sku: "PKM001001",
             img_front: "/img/pokemon/charmander-1.webp",
-            
+            licence_description :"Atrapa todos los que puedas y disfruta de una colección llena de amigos."
         },
         {
             product_id: 4,
@@ -45,7 +46,8 @@
             product_price: 1799.99,
             dues: 10,
             product_sku: "PKM001002",
-            img_front: "/img/pokemon/dragonite-1.webp"
+            img_front: "/img/pokemon/dragonite-1.webp",
+            licence_description :"Atrapa todos los que puedas y disfruta de una colección llena de amigos."
         }
     ]
 
