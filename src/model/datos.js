@@ -1,4 +1,4 @@
-
+/*
     const productos =  [
         {
             product_id: 1,
@@ -50,6 +50,24 @@
     ]
 
     module.exports = productos;
-
+*/
     
 
+    const pool = require('../config/database');
+    
+
+    //obtener todos los productos de la base de datos 
+    
+    const productos = async () => {
+        try {
+            const [datos] = await pool.query("SELECT * FROM product")
+            console.log("DATOS--->", datos)
+            return datos;
+    
+        } catch (error) {
+            console.error('Error querying MySql:', error);
+            throw error;
+        }
+    }
+
+    module.exports = productos

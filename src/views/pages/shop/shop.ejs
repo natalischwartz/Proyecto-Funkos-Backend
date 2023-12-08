@@ -66,12 +66,12 @@
                             <a class="card-item__link" href="/shop/items/<%= producto.product_id %>">
                                 <picture class="card-item__cover">
                                     <span class="card-item__tag">Nuevo</span>
-                                    <img src="<%= producto.img_front %>" alt="<%= producto.product_description %>">
+                                    <img src="/img/<%= producto.image_front %>" alt="<%= producto.product_description %>">
                                 </picture>
                                 <div class="card-item__content">
                                     <p class="card-item__license"><%= producto.licence_name %></p>
                                     <h4 class="card-item__name"><%= producto.product_name %></h4>
-                                    <p class="card-item__price"><%= producto.product_price %></p>
+                                    <p class="card-item__price"><%= producto.price %></p>
                                     <p class="card-item__promo">3 CUOTAS SIN INTERÉS</p>
                                 </div>
                             </a>
