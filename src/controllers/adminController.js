@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { getAllProductsFromDB } = require('../model/model')
+const { getAllProductsFromDB,addItemFromDB,updateItemFromDB, getItemByID } = require('../model/model')
 
 const sharp = require('sharp');
 
@@ -21,53 +21,52 @@ const admincControllers = {
         }
     },
 
+    
     create: (req, res) => {
-        res.render('pages/admin/create');
+        res.render('pages/admin/create',{
+            titulo: "Crear un Item"
+        });
     },
-    store: (req, res) => {
 
-        const errors = validationResult(req);
-
-
-        if (!errors.isEmpty()) {
-            return res.render("pages/admin/create", {
-                values: req.body,
-                errors: errors.array(),
-
-            });
-        }
-
-        if (req.file) {
-            console.log(req.file, req.file.buffer, req.file.originalname);
-
-            sharp(req.file.buffer)
-                .resize(300)
-                .toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname))
-
-        }
-
-        const nuevoFunko = req.body;
-        console.log(nuevoFunko)
-        nuevoFunko.product_id = productos.length + 1
-        nuevoFunko.product_sku = req.body.sku
-        nuevoFunko.product_name = req.body.nombre
-        nuevoFunko.licence_name = req.body.licencias
-        productos.push(nuevoFunko)
-        // console.log(productos)
-        res.render('pages/admin/admin', {
-            data: productos
-        })
-
+    store: async function addItemPost(req,res) {
+       const newItemData = req.body;
+       try {
+            const nuevoItem = await addItemFromDB(newItemData);
+            console.log("nuevo item ", nuevoItem);
+            res.redirect("/admin/productos"+"?mensaje=Item Agregado")
+       } catch (error) {
+        console.error("Error adding item",error);
+        res.status(500).send("Internal Server Error")
+       }
     },
+
+    
     show: (req, res) => {
         res.render('pages/admin/edit', {
             data: productos
         })
     },
+
+    update: async function editItem (req,res) {
+        const itemId = req.params.id;
+        try {
+            const item = await getItemByID(itemId);
+            if(item){
+                res.render("pages/admin/edit",{
+                    data: item
+                })
+            } else { 
+                res.status(404).send("Item not found")
+            }
+        } catch (error){
+            console.error("Error geting item by id",error);
+            res.status(500).send("Internal Server Error")        }
+    },
+
+    /*
     update: (req, res) => {
         const item = productos.find((producto) => {
             return producto.product_id == req.params.id;
-
         })
         if (!item) {
             return res.status(404).send("Item no encontrado");
@@ -76,11 +75,9 @@ const admincControllers = {
         res.render('pages/admin/edit', {
             data: item
         })
-
-
-
-
     },
+    */
+
     destroy: (req, res) => {
         const id = parseInt(req.params.id)
         const usuarioIndex = productos.findIndex(item => item.product_id == id)
@@ -111,3 +108,32 @@ const admincControllers ={
 
     }    
 */
+
+/*
+    store: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render("pages/admin/create", {
+                values: req.body,
+                errors: errors.array(),
+            });
+        }
+        if (req.file) {
+            console.log(req.file, req.file.buffer, req.file.originalname);
+            sharp(req.file.buffer)
+                .resize(300)
+                .toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname))
+        }
+        const nuevoFunko = req.body;
+        console.log(nuevoFunko)
+        nuevoFunko.product_id = productos.length + 1
+        nuevoFunko.product_sku = req.body.sku
+        nuevoFunko.product_name = req.body.nombre
+        nuevoFunko.licence_name = req.body.licencias
+        productos.push(nuevoFunko)
+        // console.log(productos)
+        res.render('pages/admin/admin', {
+            data: productos
+        })
+    },
+    */

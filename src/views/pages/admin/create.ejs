@@ -22,7 +22,7 @@
         <section class="container">
         <!-----------COMIENZO -------->
             <article class="box">
-                <h1 class="title-create-item">CREAR NUEVO ITEM</h1>
+                <h1 class="title-create-item"><%= titulo %></h1>
                 <% if (typeof errors != 'undefined'){ %>
                     <ul>
                         <% errors.forEach(error => { %>
@@ -36,28 +36,28 @@
 
             </article>
             <form class="form box"  action="/admin/productos" method="post" enctype="multipart/form-data">
-                <label class="select" for="categorias">Categoria</label>
-                <select class="input" id="categorias" name="categorias">
-                    <option value="llaveros">Llaveros</option>
-                    <option value="remeras">Remeras</option>
-                    <option value="funkos">Funkos</option>
+                <label class="select" for="category_id">Categoria</label>
+                <select class="input" id="category_id" name="category_id">
+                    <option value="1">Llaveros</option>
+                    <option value="2">Remeras</option>
+                    <option value="3">Funkos</option>
                     <option value="figure">-</option>
                 </select>
-                <label class="select" for="licencias">Licencia</label>
-                <select class="input" id="licencias" name="licencias">
-                    <option value="star wars">Star Wars</option>
-                    <option value="pokemon">Pokemon</option>
-                    <option value="harry potter">Harry potter</option>
+                <label class="select" for="licence_id">Licencia</label>
+                <select class="input" id="licence_id" name="licence_id">
+                    <option value="1">Star Wars</option>
+                    <option value="2">Pokemon</option>
+                    <option value="3">Harry potter</option>
                     <option value="licencia">-</option>
                 </select>
                 <div class="box create-name-product">
-                    <label class="select" for="nombre">Nombre del Producto:</label>
-                    <input class="producto border" type="text" id="nombre" name="nombre" value="<%= typeof values != 'undefined' ? values.nombre  : '' %>"
+                    <label class="select" for="product_name">Nombre del Producto:</label>
+                    <input class="producto border" type="text" id="product_name" name="product_name" value="<%= typeof values != 'undefined' ? values.nombre  : '' %>"
                     />
                 </div>
                 <div class="box">
                     <label for="textarea">
-                        <textarea class="text-area" name="descripcion" rows="8" cols="80" placeholder="Descripción del producto"> </textarea>
+                        <textarea class="text-area" name="product_description" rows="8" cols="80" placeholder="Descripción del producto"> </textarea>
                     </label>
                 </div>
                 <div class="box container__padre">
@@ -75,21 +75,21 @@
                     </div>
                 </div>    
                 <div class="container__padre box">
-                    <label class="select" for="number">Descuento:</label>
-                    <input class="border3" type="number" id="number" name="number" />
+                    <label class="select" for="discount">Descuento:</label>
+                    <input class="border3" type="number" id="discount" name="discount" />
                     <p>%</p>
-                    <label class="select producto" for="cuotas">Cuotas:</label>
-                    <select id="cuotas" class="input" name="cuotas">
-                        <option value="1 cuota sin interés">1 cuota sin interés</option>
-                        <option value="2 cuotas sin interés">2 cuotas sin interés</option>
-                        <option value="3 cuotas sin interés">3 cuotas sin interés</option>
-                        <option value="6 cuotas sin interés">6 cuotas sin interés</option>
+                    <label class="select producto" for="dues">Cuotas:</label>
+                    <select id="dues" class="input" name="dues">
+                        <option value="1">1 cuota sin interés</option>
+                        <option value="2">2 cuotas sin interés</option>
+                        <option value="3">3 cuotas sin interés</option>
+                        <option value="6">6 cuotas sin interés</option>
                     </select>
                 </div>
                 <article class="box">
                     <div class="container__padre">
-                        <label class="select" for="imagen">Imágenes:</label>
-                        <input type="file" name="imagen" id="imagen">
+                        <label class="select" for="image_front">Imágenes:</label>
+                        <input type="file" name="image_front" id="image_front">
                         <p class="text">No se ha seleccionado ningún archivo</p>
                     </div>
                 </article>
