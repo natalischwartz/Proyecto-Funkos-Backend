@@ -28,5 +28,3 @@ module.exports = {
     getAllProductsFromDB,
     getItemByID
 };
-
-console.log(module)
