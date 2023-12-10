@@ -41,9 +41,9 @@ const addItemFromDB = async (itemData) => {
 
 
 // Editar un item por ID en la base de datos
-const editItemFromDB = async (id, updatItemData) => {
+const editItemPostFromDB = async (id, updatedItemData) => {
     try {
-        await pool.query('UPDATE product SET ? WHERE id = ?', [updatItemData, id]);
+        await pool.query('UPDATE product SET ? WHERE product_id = ?', [updatedItemData, id]);
         const updatedItem = await getItemPorIDFromDB(id);
         return updatedItem;
     } catch (error) {
@@ -57,7 +57,7 @@ const editItemFromDB = async (id, updatItemData) => {
 const deleteItemFromDB = async (id) => {
     try {
         const deletedItem = await getItemPorIDFromDB(id);
-        await pool.query('DELETE FROM product WHERE id = ?', [id]);
+        await pool.query('DELETE FROM product WHERE product_id = ?', [id]);
         return deletedItem;
     } catch (error) {
         console.error('Error deleting from MySQL:', error);
@@ -69,7 +69,7 @@ const deleteItemFromDB = async (id) => {
 module.exports = {getAllProductsFromDB,
     getItemPorIDFromDB,
     addItemFromDB,
-    editItemFromDB,
+    editItemPostFromDB,
     deleteItemFromDB
 }
 

@@ -1,7 +1,7 @@
 
 //importando datos 
 //const productos = require('../model/datos')
-const {getAllProductsFromDB, getItemByID} = require('../model/model')
+const {getAllProductsFromDB, getItemPorIDFromDB} = require('../model/model')
 
 
 //HOME getAllItems 
@@ -23,7 +23,7 @@ async function getAllItems(req,res ){
 async function getItemPorID(req,res){
     const itemID = req.params.id;
     try {
-        const item = await getItemByID(itemID);
+        const item = await getItemPorIDFromDB(itemID);
         if (item) {
             res.render("pages/shop/item", {
                 data: item

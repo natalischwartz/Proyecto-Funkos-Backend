@@ -27,7 +27,7 @@
                 <% if (typeof errors != 'undefined'){ %>
                     <ul>
                         <% errors.forEach(error => { %>
-                            <li><%= error.msg %></li>
+                            <p class="texto-alert"><%= error.msg %></p>
                         <%  }) %>
                     </ul>
 

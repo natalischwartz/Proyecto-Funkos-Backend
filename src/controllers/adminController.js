@@ -2,7 +2,7 @@ const path = require('path');
 
 // const productos = require('../model/datos')
 
-const {getAllProductsFromDB,addItemFromDB,editItemFromDB,getItemPorIDFromDB,deleteItemFromDB} = require('../model/model')
+const {getAllProductsFromDB,addItemFromDB,editItemPostFromDB,getItemPorIDFromDB,deleteItemFromDB} = require('../model/model')
 
 
 const { validationResult } = require('express-validator');
@@ -88,7 +88,7 @@ async function editItemPOST(req, res) {
     const itemID = req.params.id;
     const updatedItemData = req.body;
     try {
-        const updatedItem = await editItemFromDB(itemID, updatedItemData);
+        const updatedItem = await editItemPostFromDB(itemID, updatedItemData);
         if (updatedItem) {
             res.redirect("/admin/productos" + "?mensaje=Item actualizado")
         } else {

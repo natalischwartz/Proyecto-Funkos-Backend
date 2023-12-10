@@ -21,6 +21,9 @@
             <img class="icon-size" src="../../img/icons/search_icon.svg" alt="">
             <input type="text" placeholder="código, nombre o categoria" size="30">
         </div>
+        <% if (mensaje) { %>
+            <p  class="texto-alert" role="alert"><%= mensaje %></p>
+        <% } %>
         <section class="list-section">
             <h1>LISTADO DE PRODUCTOS</h1>
             <div class="add-section">
