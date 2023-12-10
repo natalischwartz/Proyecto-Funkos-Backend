@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const shopControllers = require('../controllers/shopController')
+const {getAllItems ,getItemPorID, itemIdAdd, cartGet }= require('../controllers/shopController')
 
 
-router.get('/', shopControllers.home)
+router.get('/', getAllItems);
 
-router.get('/items/:id', shopControllers.obtenerItem )
-
-
-router.post('/item/:id/add', shopControllers.itemIdAdd)
+router.get('/items/:id', getItemPorID );
 
 
-router.get('/cart', shopControllers.cartGet)
+router.post('/item/:id/add',itemIdAdd)
 
-router.post('/cart', shopControllers.cartPost )
+
+router.get('/cart', cartGet)
+
+// router.post('/cart', shopControllers.cartPost )
 
 
 

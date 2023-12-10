@@ -6,7 +6,7 @@ const upload = multer({storage: multer.memoryStorage() });
 const {body} = require('express-validator');
 
 const validations = [
-    body('nombre')
+    body('product_name')
     .not()
     .isEmpty()
     .withMessage("El nombre es obligatorio")
@@ -17,22 +17,24 @@ const validations = [
 
 
 
-const adminControllers = require('../controllers/adminController')
+const {getAllItems, additem, addItemPOST,editItem, editItemPOST,deleteItem} = require('../controllers/adminController')
 
-router.get('/productos',adminControllers.home )
+router.get('/productos',getAllItems);
 
-
-router.get('/create',adminControllers.create)
-router.post('/productos', upload.single("imagen"), validations, adminControllers.store )
-
+router.get('/create', additem);
+router.post('/productos', upload.single("imagen"), validations, addItemPOST );
 
 
-router.get('/:id',adminControllers.show )
+//mostrar form de editar item 
+router.get('/edit/:id', editItem );
 
-router.get('/edit/:id', adminControllers.update)
+//enviar a admin/productos lo que se completo en el form 
+router.post('/edit/:id', editItemPOST);
 
 
-router.get('/delete/:id',adminControllers.destroy )
+
+
+router.get('/delete/:id', deleteItem );
 
 
 

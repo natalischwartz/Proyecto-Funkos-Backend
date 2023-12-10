@@ -6,8 +6,7 @@ const initSession  = require('./src/utils/sessions');
 require('dotenv').config();
 
 
-
-const PORT= 3000
+const PORT= process.env.PORT || 3000
 
 const mainRoutes = require('./src/routes/mainRoutes');
 const shopRoutes = require('./src/routes/shopRoutes');

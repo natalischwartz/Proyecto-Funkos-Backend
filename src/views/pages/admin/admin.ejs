@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN | Funkoshop</title>
-    <link rel="icon" href="../../img/branding/isotype.svg">
     <link rel="stylesheet" href="../../css/styles.css">
 
     <!--Google fonts-->
@@ -44,7 +43,7 @@
                 <% data.forEach((producto) => { %> 
                     <tr>
                         <td><%= producto.product_id %></td>
-                        <td><%= producto.product_sku %></td>
+                        <td><%= producto.sku %></td>
                         <td><%= producto.product_name %></td>
                         <td><%= producto.licence_name %></td>
                         <div>
