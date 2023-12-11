@@ -21,29 +21,29 @@
 
     <main> <!-- Inicio de principal-->
         <section class="container"> <!--Inicio de ITEM-->
-            <div class="section-flex">
-                <picture>
+            <div class="div-flex-row">
+                <picture class="item__img card-item__cover">
                     <!-- style="background-color:pink; height: 500px; width: 500px;" -->
-                    <img class="imagen-item" src="/img<%= data.image_front %>"
+                    <img class="card-item__img--front" src="/img<%= data.image_front %>"
                         alt="<%= data.product_description %>">
+                    <img class="card-item__img--back" src="/img<%= data.image_back %>" alt="<%= data.product_description %>">
                 </picture>
-
-                <article class="cuerpo"> <!--primer producto-->
+                <article class="cuerpo">
                     <div class="card-item__content">
                         <p class="card-item__license"><%= data.licence_name %></p>
                         <h1 class="card-item__name"><%= data.product_name %></h1>
                         <p><%= data.product_description %></p>
-                        <p><%= data.product_price%></p>
+                        <p><%= data.price%></p>
                         <div class="div-flex-row">
-                            <div class="div-flex-row">
-                                <input class="item__input" type="text" name="quantity"  id="quantity"   placeholder="0" size="2">
+                            <div class="item__cart div-flex-row">
+                                <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
                                 <div class="div-flex-column">
-                                    <button class="item__quantity" type="button" id="substract">-</button>
-                                    <button class="item__quantity" type="button" id="add">+</button>
+                                    <button id="subtract" class="item__quantity" type="button">-</button>
+                                    <button id="add" class="item__quantity" type="button">+</button>
                                 </div>
+                                <button class="item__submit btn btn--priority btn--medium" type="submit">
+                                    <a href="/shop/cart">Agregar al Carrito</a></button>
                             </div>
-                            <button class="item__submit btn btn--priority btn--medium" type="submit">
-                                <a href="/shop/cart">Agregar al Carrito</a></button>
                         </div>
                         <p class="card-item__promo"> Ver métodos de pago - 3 CUOTAS SIN INTERÉS</p>
                     </div>

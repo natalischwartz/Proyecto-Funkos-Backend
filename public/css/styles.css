@@ -367,7 +367,7 @@ iconify-icon{
 }
 
 .card-item__license {
-    font-size: var(--font-small);
+    font-size: var(--font-);
     font-weight: 500;
     text-transform:uppercase;
 }
@@ -625,6 +625,11 @@ td{
 
 
 /*Item*/
+
+.item__img{
+    width:30%;
+}
+
 .section-flex {
     display:flex;
     align-items:center;
@@ -651,6 +656,7 @@ td{
     background-color:var(--dark-bg-solid);
     color: var(--light-font-solid);
     border:none;
+    padding: var(--spacing-8);
 }
 
 .item__submit {
@@ -658,6 +664,17 @@ td{
     color: var(--light-font-solid);
     border:none;
     align-self:center;
+}
+
+.item__cart {
+    display: flex;
+    gap: var(--spacing-16);
+}
+
+.item__input {
+    height: 50px;
+    width: 50px;
+    text-align: center;
 }
 
 /*EDIT- CREATE*/
