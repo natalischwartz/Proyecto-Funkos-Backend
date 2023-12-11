@@ -63,6 +63,8 @@ const deleteItemFromDB = async (id) => {
         console.error('Error deleting from MySQL:', error);
         throw error;
     }
+
+    
 };
 
 
