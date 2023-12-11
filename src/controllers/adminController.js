@@ -1,6 +1,6 @@
 const path = require('path');
 
-const Swal = require('sweetalert2')
+// const Swal = require('sweetalert2')
 // const productos = require('../model/datos')
 
 const {getAllProductsFromDB,addItemFromDB,editItemPostFromDB,getItemPorIDFromDB,deleteItemFromDB} = require('../model/model')
@@ -111,14 +111,14 @@ async function deleteItem(req, res) {
         } else {
             res.status(404).send('item not found');
         }
-
-
         
+
     } catch (error) {
         console.error('Error deleting item:', error);
         res.status(500).send('Internal Server Error');
     }
 
+    
 
 
 }

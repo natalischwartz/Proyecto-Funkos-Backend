@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit | FunkoShop</title>
-    <link rel="icon" href="/img/branding/isotype.svg">
-    
-    <link rel="stylesheet" href="../../css/styles.css">
 
-    <link rel="stylesheet" type="text/css" href="../../css/styleEdit.css" />
-  </head>
+<head>
 
-  <body>
-    <header><!--Inicio Header-->
-      <nav class="navbar container">
-          <picture class="navbar__logo">
-              <a href="/">
-                  <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-              </a>
-          </picture>
-          <ul class="navbar__menu">
-              <li class="navbar__item">
-                  <a class="navbar__link" href="/shop">VER TIENDA</a>
-              </li>
-              <li class="navbar__item">
-                  <a class="navbar__link" href="/admin/productos">ADMIN</a>
-              </li>
-              <li class="navbar__item">
-                  <a class="navbar__link" href="/">SALIR</a>
-              </li>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit | FunkoShop</title>
+  <link rel="icon" href="/img/branding/isotype.svg">
+
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <link rel="stylesheet" type="text/css" href="../../css/styleEdit.css" />
+</head>
+
+<body>
+  <header><!--Inicio Header-->
+    <nav class="navbar container">
+      <picture class="navbar__logo">
+        <a href="/">
+          <img src="../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
+        </a>
+      </picture>
+      <ul class="navbar__menu">
+        <li class="navbar__item">
+          <a class="navbar__link" href="/shop">VER TIENDA</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="/admin/productos">ADMIN</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="/">SALIR</a>
+        </li>
+      </ul>
+      <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
+      <!--menu mobile-->
+      <aside class="aside-menu">
+        <button class="close-menu" id="close-menu">
+          <iconify-icon icon="material-symbols:close"></iconify-icon>
+        </button>
+        <nav>
+          <ul class="menu">
+            <li class="navbar__item with-submenu">
+              <a class="navbar__link with-icon" href="/shop"> VER TIENDA</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/admin/productos">ADMIN</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/">SALIR</a>
+            </li>
           </ul>
-          <iconify-icon class="icon-bar open-menu " icon="fe:bar" id="open-menu"></iconify-icon>
-          <!--menu mobile-->
-          <aside class="aside-menu">
-              <button class="close-menu" id="close-menu">
-                  <iconify-icon icon="material-symbols:close"></iconify-icon>
-              </button>
-              <nav>
-                  <ul class="menu">
-                      <li class="navbar__item with-submenu">
-                          <a  class="navbar__link with-icon" href="/shop"> VER TIENDA</a>
-                      </li>
-                      <li class="navbar__item">
-                          <a class="navbar__link" href="/admin/productos">ADMIN</a>
-                      </li>
-                      <li class="navbar__item">
-                          <a  class="navbar__link"href="/">SALIR</a>
-                      </li>
-                  </ul>
-              </nav>
-          </aside>
-      </nav>
+        </nav>
+      </aside>
+    </nav>
   </header><!--Fin Header-->
-    <!-----------FIN HEADER -------->
-    <main>
-      <section class="container">
-        <!-----------COMIENZO -------->
-        <article class="box">
-          <h1 class="title-create-item">EDITAR ITEM</h1>
-        </article>
-        <form class="form box" for=""  action="/admin" required>
-          <label class="select" for="category_id">Categoria</label>
-          <select class="input" id="category_id" name="category_id">
-            <option value="1">Llaveros</option>
-            <option value="2">Remeras</option>
-            <option value="3">Funkos</option>
-            <option value="figure">-</option>
+  <!-----------FIN HEADER -------->
+  <main>
+    <section class="container">
+      <!-----------COMIENZO -------->
+      <article class="box">
+        <h1 class="title-create-item">EDITAR ITEM</h1>
+      </article>
+      <form class="form box"  action="/admin/edit/<%= data.product_id %>" method="post">
+        <label class="select" for="category_id">Categoria</label>
+        <select class="input" id="category_id" name="category_id">
+          <option value="1">Llaveros</option>
+          <option value="2">Remeras</option>
+          <option value="3">Funkos</option>
+          <option value="figure">-</option>
+        </select>
+        <label class="select" for="licence_id">Licencia</label>
+        <select class="input" id="licence_id" name="licence_id">
+          <option value="1">Star Wars</option>
+          <option value="2">Pokemon</option>
+          <option value="3">Harry potter</option>
+          <option value="licencia">-</option>
+        </select>
+        <div class="box create-name-product">
+          <label for="product_name" class="select">Nombre del Producto:</label>
+          <input class="producto border" type="text" name="product_name" value="<%=data.product_name %>" />
+        </div>
+        <div class="box">
+          <label for="textarea">
+            <textarea class="text-area" name="product_description" rows="8" cols="80"
+              value="<%=data.product_description %>"> </textarea>
+          </label>
+        </div>
+        <div class="box container__padre">
+          | <div class="container__padre">
+            <label class="select" for="sku">SKU:</label>
+            <input class="producto border2" type="text" id="sku" name="sku" value="<%=data.sku %>" />
+          </div>
+          <div class="container__padre">
+            <label class="select space" for="price">Precio:</label>
+            <input class="producto border2" type="text" id="price" name="price" value="<%=data.price %>" />
+          </div>
+          <div class="container__padre">
+            <label class="select space" for="stock">Stock:</label>
+            <input class="producto border3" type="number" id="stock" name="stock" value="<%=data.dues %>" />
+          </div>
+        </div>
+        <div class="container__padre box">
+          <label class="select" for="discount">Descuento:</label>
+          <input class="border3" type="number" id="discount" name="discount" />
+          <p>%</p>
+          <label class="select producto" for="dues">Cuotas:</label>
+          <select id="dues" class="input" name="dues">
+              <option value="1">1 cuota sin interés</option>
+              <option value="2">2 cuotas sin interés</option>
+              <option value="3">3 cuotas sin interés</option>
+              <option value="6">6 cuotas sin interés</option>
           </select>
-          <label class="select" for="licence_id">Licencia</label>
-          <select class="input" id="licence_id" name="licence_id">
-            <option value="1">Star Wars</option>
-            <option value="2">Pokemon</option>
-            <option value="3">Harry potter</option>
-            <option value="licencia">-</option>
-          </select>
-          <div class="box create-name-product">
-              <label for="product_name" class="select" >Nombre del Producto:</label>
-              <input class="producto border" type="text"  name="product_name" value="<%=data.product_name %>" />
-          </div>
-          <div class="box">
-              <label for="textarea">
-                  <textarea class="text-area" name="product_description" rows="8" cols="80"  value="<%=data.product_description %>" > </textarea>
-              </label>
-          </div>
-          <div class="box container__padre">
-|                   <div class="container__padre">
-                  <label class="select" for="sku">SKU:</label>
-                  <input class="producto border2" type="text" id="sku" name="sku"  value="<%=data.sku %>" />
-              </div>
-              <div class="container__padre">
-                  <label class="select space" for="price">Precio:</label>
-                  <input class="producto border2" type="text" id="price" name="price"value="<%=data.price %>"  />
-              </div>
-              <div class="container__padre">
-                  <label class="select space" for="stock">Stock:</label>
-                  <input class="producto border3" type="number" id="stock" name="stock" value="<%=data.dues %>" />
-              </div>
-          </div>    
-          <div class="container__padre box">
-              <label class="select" for="number">Descuento:</label>
-              <input class="border3" type="number" id="number" name="number"  />
-              <p>%</p>
-              <label class="select producto" for="cuotas">Cuotas:</label>
-              <select id="cuotas" class="input" name="cuotas">
-                <option value="1 cuota sin interés">1 cuota sin interés</option>
-                <option value="2 cuotas sin interés">2 cuotas sin interés</option>
-                <option value="3 cuotas sin interés">3 cuotas sin interés</option>
-                <option value="6 cuotas sin interés">6 cuotas sin interés</option>
-              </select>
-          </div>
-      </form>
-        </article>
+      </div>
         <article class="box container__padre">
           <div class="edit__img">
             <img src="/img<%= data.image_front %>" alt="<%= data.product_name %>">
@@ -120,30 +120,32 @@
           <div class="edit__img">
             <img src="/img<%= data.image_back %>" alt="<%= data.product_name %> en caja">
             <p class="edit__img-side">Dorso</p>
-        </div>
+          </div>
         </article>
         <article class="box btn2 container__padre">
-          <a class="modificar-link" href="/admin/productos">Modificar Producto</a>
+          <button class="modificar-link" type="submit" href="">Modificar Producto</button>
         </article>
-      </section>
-    </main>
-    <footer class="footer">
-      <nav class="navbar container">
-          <ul class="navbar__item">
-              <li class="navbar__item"><a class="navbar__link" href="/shop">SHOP</a></li>
-              <li class="navbar__item"><a class="navbar__link" href="/auth/register">REGISTRARSE</a></li>
-              <li class="navbar__item"><a class="navbar__link" href="/auth/login">LOGIN</a></li>
-              <li class="navbar__item"><a class="navbar__link" href="/contact">CONTACTO</a></li>
-          </ul>
-          <picture class="navbar__logo">
-              <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
-          </picture>
-          <iconify-icon class="icon-bar" icon="fe:bar"></iconify-icon>
-      </nav>
-      <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <nav class="navbar container">
+      <ul class="navbar__item">
+        <li class="navbar__item"><a class="navbar__link" href="/shop">SHOP</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="/auth/register">REGISTRARSE</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="/auth/login">LOGIN</a></li>
+        <li class="navbar__item"><a class="navbar__link" href="/contact">CONTACTO</a></li>
+      </ul>
+      <picture class="navbar__logo">
+        <img src="../../img/branding/isotype.svg" alt="Isotipo de la marca Funkoshop">
+      </picture>
+      <iconify-icon class="icon-bar" icon="fe:bar"></iconify-icon>
+    </nav>
+    <p class="footer__copy">All rights reserved 2023 - Funkoshop &copy;</p>
   </footer>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-    <script src="../../js/menu-mobile.js"></script>
-  </body>
+  <script src="../../js/menu-mobile.js"></script>
+</body>
+
 </html>

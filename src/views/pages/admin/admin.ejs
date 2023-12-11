@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Raleway:wght@300&display=swap" rel="stylesheet">
 
 
+
 </head>
 
 <body> 
@@ -51,16 +52,19 @@
                         <td><%= producto.product_name %></td>
                         <td><%= producto.licence_name %></td>
                         <div>
-                            <td>
-                                <a href="/admin/edit/<%= producto.product_id %>">
-                                    <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="/admin/delete/<%= producto.product_id %>">
-                                    <img class="icon-size" src="../../img/icons/delete_trash.svg" alt="">
-                                </a>
-                            </td> 
+                            <form action="/admin/productos" method="post">
+                                <td>
+                                    <a href="/admin/edit/<%= producto.product_id %>">
+                                        <img class="icon-size" src="../../img/icons/edit_pencil.svg" alt="">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/admin/delete/<%= producto.product_id %>" onclick="return confirm('Esta seguro de eliminar')">
+                                        <img class="icon-size" src="../../img/icons/delete_trash.svg" alt="">
+                                    </a>
+                                </td> 
+                            </form>
+                            
                         </div>
                     </tr>
 
@@ -324,8 +328,6 @@
     <!--Iconos-->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-    <!--sweet alert-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../../js/menu-mobile.js"></script>
 </body>

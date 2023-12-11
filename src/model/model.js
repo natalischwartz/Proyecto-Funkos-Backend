@@ -5,7 +5,7 @@ const pool = require('../config/database');
 const getAllProductsFromDB = async () => {
     try {
         const [productos] = await pool.query("SELECT product.product_id, product.product_name, product.product_description,product.price,product.stock,product.sku,product.dues,product.image_front,product.image_back,product.create_time,licence.licence_name,product.category_id FROM product JOIN licence ON product.licence_id = licence.licence_id;")
-        console.log("DATOS--->", productos)
+        // console.log("DATOS--->", productos)
         return productos;
     } catch (error) {
         console.error('Error querying MySql:', error);
@@ -45,7 +45,9 @@ const editItemPostFromDB = async (id, updatedItemData) => {
     try {
         await pool.query('UPDATE product SET ? WHERE product_id = ?', [updatedItemData, id]);
         const updatedItem = await getItemPorIDFromDB(id);
+        console.log("Item modificado-->",updatedItem)
         return updatedItem;
+        
     } catch (error) {
         console.error('Error updating MySQL:', error);
         throw error;
