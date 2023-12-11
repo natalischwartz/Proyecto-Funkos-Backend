@@ -1030,9 +1030,21 @@ td{
 /*MEDIAS QUERIES*/
 
 @media screen and (max-width: 768px) {
+
+    .container{
+        padding: 10px 50px;
+    }
+
+
+    .navbar{
+        gap: var(--spacing-20);
+    }
+
     .navbar__menu {
         display: none;
+        
     }
+
 
     .icon-bar {
         display: block;
