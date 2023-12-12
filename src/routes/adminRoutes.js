@@ -22,7 +22,7 @@ const {getAllItems, additem, addItemPOST,editItem, editItemPOST,deleteItem} = re
 router.get('/productos',getAllItems);
 
 router.get('/create', additem);
-router.post('/productos', upload.single("imagen"), validations, addItemPOST );
+router.post('/productos', upload.single("image_front"), validations, addItemPOST );
 
 
 //mostrar form de editar item 
