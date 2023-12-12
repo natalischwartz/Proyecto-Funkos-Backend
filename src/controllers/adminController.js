@@ -55,48 +55,31 @@ async function addItemPOST(req, res) {
         });
         }
 
-        //multer
-
-        if(req.file){
-            // console.log(req.file, req.file.buffer, req.file.originalname);
-    
-            sharp(req.file.buffer)
+      //multer
+    if (req.file) {
+        // console.log(req.file, req.file.buffer, req.file.originalname);
+        sharp(req.file.buffer)
             .resize(300)
-            .toFile(path.resolve(__dirname, "../../public/uploads/" + req.file.originalname))
+            .toFile(path.resolve(__dirname, "../../public/img/uploads/" + req.file.originalname))
+        const file_data = req.file
+        console.log(file_data)
 
+        const imageFront = "/uploads/" + file_data.originalname;
+        const newItemData = { ...req.body, image_front: imageFront };
+        //console.log("la direccion es:" + imageFront);
+        //console.log("el objeto a agregar es: ", newItemData)
 
-            
-            const file_data =req.file
-            console.log(file_data)
-            
-
-            const newItemData = req.body;
-            const imageFront = file_data.originalname
-            
-            
-
-            try {
-                const nuevoItem = await addItemFromDB(newItemData,imageFront);
-                console.log("nuevoItem", nuevoItem)
-                res.redirect("/admin/productos" + "?mensaje=Item agregado")
-            } catch (error) {
-                console.error('Error adding Item:', error);
-                res.status(500).send('Internal Server Error');
-            }
-        
+        try {
+            const nuevoItem = await addItemFromDB(newItemData, imageFront);
+            console.log("nuevoItem::", nuevoItem)
+            res.redirect("/admin/productos" + "?mensaje=Item agregado")
+        } catch (error) {
+            console.error('Error adding Item:', error);
+            res.status(500).send('Internal Server Error');
         }
-
-
-
-            }
-            
-
-        
-    
-
-    
-    
-   
+    }
+}
+  
 
 //editItem - show
 async function editItem(req, res) {
