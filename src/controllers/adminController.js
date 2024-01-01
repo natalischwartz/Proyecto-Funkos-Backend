@@ -5,7 +5,7 @@ const path = require('path');
 // const Swal = require('sweetalert2')
 // const productos = require('../model/datos')
 
-const sharp = require('sharp');
+// const sharp = require('sharp');
 
 const {getAllProductsFromDB,addItemFromDB,editItemPostFromDB,getItemPorIDFromDB,deleteItemFromDB} = require('../model/model')
 
@@ -58,8 +58,7 @@ async function addItemPOST(req, res) {
       //multer
     if (req.file) {
         // console.log(req.file, req.file.buffer, req.file.originalname);
-        sharp(req.file.buffer)
-            .resize(300)
+        (req.file.buffer)
             .toFile(path.resolve(__dirname, "../../public/img/uploads/" + req.file.originalname))
         const file_data = req.file
         console.log(file_data)
