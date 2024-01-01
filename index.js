@@ -1,4 +1,6 @@
 const express = require('express');
+
+const path = require('path');
 // const session =require('express-session');
 const app = express();
 const methodOverride = require('method-override');
@@ -15,7 +17,7 @@ const authRoutes = require('./src/routes/authRoutes');
 
 
 //Middlewares de configuración
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname,"/public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'))
@@ -23,7 +25,7 @@ app.use(methodOverride('_method'))
 //Configuracion del Template Engines ,EJS
 
 app.set('view engine' , 'ejs')
-app.set('views' , 'src/views')
+app.set('views' , path.join(__dirname, "/src/views"));
 
 
 /* Creamos la session de usuario */
