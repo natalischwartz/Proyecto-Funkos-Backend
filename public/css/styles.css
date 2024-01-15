@@ -88,7 +88,7 @@ p {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -286,6 +286,7 @@ aside {
 .collection__link:hover {
     background-color: var(--primary-900);
 }
+
 
 /*SLIDER*/
 
@@ -1031,10 +1032,14 @@ td{
 
 @media screen and (max-width: 768px) {
 
-    .container{
-        padding: 10px 50px;
+    .container {
+        max-width: 768px;
+        margin: 0 auto;
     }
 
+    .main-container{
+        padding: 10px 30px;
+    }
 
     .navbar{
         gap: var(--spacing-20);
@@ -1111,6 +1116,25 @@ td{
 
     .navbar__cart img {
         width: 10vw;
+    }
+
+    .collection__content {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .collection__title{
+        font-size: var(--font-large);
+    }
+
+    .collection__text{
+        font-size: var(--font-medium);
+    }
+
+    .collection__link{
+        display: inline-block;
+        font-size: var(--font-xsmall);
     }
 
     .card-item{
