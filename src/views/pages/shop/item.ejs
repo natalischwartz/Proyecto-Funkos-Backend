@@ -34,21 +34,18 @@
                         <h1 class="card-item__name"><%= data.product_name %></h1>
                         <p><%= data.product_description %></p>
                         <p><%= data.price%></p>
-                        <div class="div-flex-row">
-                            <div class="item__cart div-flex-row">
-                                <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
-                                <div class="div-flex-column">
-                                    <button class="item__quantity" type="button" id="add">+</button>
-                                    <button class="item__quantity" type="button" id="substract">-</button>
-                                </div>
-                                <button class="item__submit btn btn--priority btn--medium" type="submit">
-                                    <a href="/shop/cart">Agregar al Carrito</a></button>
-                            </div>
-                        </div>
                         <p class="card-item__promo"> Ver métodos de pago - 3 CUOTAS SIN INTERÉS</p>
                     </div>
-                    
-                </article>
+                    <div class="item__cart">
+                        <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
+                        <div class="div-flex-column">
+                            <button class="item__quantity" type="button" id="add">+</button>
+                            <button class="item__quantity" type="button" id="substract">-</button>
+                        </div>
+                        <button class="item__submit btn btn--priority btn--medium" type="submit">
+                            <a href="/shop/cart">Agregar al Carrito</a></button>
+                    </div> 
+                </article>   
             </div>
         </section> <!--fin de seccion-->
         <section class="slider container glide">

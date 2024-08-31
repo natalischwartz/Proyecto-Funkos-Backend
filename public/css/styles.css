@@ -658,9 +658,9 @@ button {
 
 /*Item*/
 
-.item__img{
+/* .item__img{
     width:30%;
-}
+} */
 
 .section-flex {
     display:flex;
@@ -672,6 +672,7 @@ button {
     display: flex;
     /* gap: var(--spacing-20); */
     align-items: center;
+    padding: 0 20px;
 }
 
 .div-flex-column{
@@ -679,16 +680,20 @@ button {
     flex-direction: column;
     gap: var(--spacing-8);
     justify-content: center;
-    align-self: center;
     
 }
 
 
 .item__quantity{
+    width: 2rem;
+    height: 2rem;
     background-color:var(--dark-bg-solid);
     color: var(--light-font-solid);
     border:none;
     padding: var(--spacing-8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item__submit {
@@ -702,11 +707,14 @@ button {
 .item__cart {
     display: flex;
     gap: var(--spacing-16);
+    justify-content: end;
+    margin-top: var(--spacing-20);
+    padding-right: 20px;
 }
 
 .item__input {
-    height: 40px;
-    width: 40px;
+    height: 5rem;
+    width: 4rem;
     text-align: center;
 }
 
